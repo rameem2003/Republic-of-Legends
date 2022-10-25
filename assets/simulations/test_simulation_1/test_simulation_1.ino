@@ -45,7 +45,7 @@ void goForward(){
 
 void goBackword(){
   lcd.setCursor(0,0);
-  lcd.print("Robot Going Backword");
+  lcd.print("Robot Going Backward");
   digitalWrite(motor_A_in_1, LOW);
   digitalWrite(motor_A_in_2, HIGH);
 
