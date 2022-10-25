@@ -38,7 +38,7 @@ void loop() {
 
 void goForward(){
   lcd.setCursor(0,0);
-  lcd.print("Robot Going Forward");
+  lcd.print("Robot Forward");
   digitalWrite(motor_A_in_1, HIGH);
   digitalWrite(motor_A_in_2, LOW);
 
@@ -48,7 +48,7 @@ void goForward(){
 
 void goBackword(){
   lcd.setCursor(0,0);
-  lcd.print("Robot Going Backward");
+  lcd.print("Robot Backward");
   digitalWrite(motor_A_in_1, LOW);
   digitalWrite(motor_A_in_2, HIGH);
 
