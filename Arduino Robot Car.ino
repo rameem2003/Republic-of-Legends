@@ -8,6 +8,7 @@
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
+
 // initializze 2 led's to check bluetooth communication
 int led1 = 7;
 int led2 = 8;
