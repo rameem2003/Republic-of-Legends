@@ -31,6 +31,9 @@ void loop() {
   goBackword();
   delay(5000);
 
+  nowStop();
+  delay(2000);
+
 }
 
 void goForward(){
@@ -51,4 +54,15 @@ void goBackword(){
 
   digitalWrite(motor_B_in_1, LOW);
   digitalWrite(motor_B_in_2, HIGH);
+}
+
+void nowStop(){
+  lcd.setCursor(0,0);
+  lcd.clear();
+  lcd.print("Robot Stoped");
+  digitalWrite(motor_A_in_1, LOW);
+  digitalWrite(motor_A_in_2, LOW);
+
+  digitalWrite(motor_B_in_1, LOW);
+  digitalWrite(motor_B_in_2, LOW);
 }
