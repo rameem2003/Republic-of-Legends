@@ -1,5 +1,5 @@
 /**
-* Arduino Based Robot Car Project Firmware Version 0.6 Developer Preview
+* Arduino Based Robot Car Project Firmware Version 0.8 Developer Preview
 * Developer & Contributors
 * Republic of Legends
 * No Bluetooth Connectivity
@@ -25,7 +25,6 @@ void setup() {
   pinMode(motor_A_in_2, OUTPUT);
   pinMode(motor_B_in_1, OUTPUT);
   pinMode(motor_B_in_2, OUTPUT);
-
 }
 
 void loop() {
@@ -46,7 +45,9 @@ void loop() {
 
 void goForward(){
   lcd.setCursor(0,0);
-  lcd.print("Robot Forward");
+  lcd.print("Republic of Legends");
+  lcd.setCursor(0, 1);
+  lcd.print(" Robot Forward ");
   digitalWrite(motor_A_in_1, HIGH);
   digitalWrite(motor_A_in_2, LOW);
 
@@ -56,7 +57,9 @@ void goForward(){
 
 void goBackword(){
   lcd.setCursor(0,0);
-  lcd.print("Robot Backward");
+  lcd.print("Republic of Legends");
+  lcd.setCursor(0, 1);
+  lcd.print(" Robot Backward ");
   digitalWrite(motor_A_in_1, LOW);
   digitalWrite(motor_A_in_2, HIGH);
 
@@ -66,8 +69,9 @@ void goBackword(){
 
 void nowStop(){
   lcd.setCursor(0,0);
-  lcd.clear();
-  lcd.print("Robot Stoped");
+  lcd.print("Republic of Legends");
+  lcd.setCursor(0, 1);
+  lcd.print("   Robot Stop   ");
   digitalWrite(motor_A_in_1, LOW);
   digitalWrite(motor_A_in_2, LOW);
 
