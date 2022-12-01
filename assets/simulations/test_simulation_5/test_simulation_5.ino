@@ -1,5 +1,5 @@
 /**
-* Arduino Based ROBOT Car Project Firmware Version 1.0 Developer Preview
+* Arduino Based ROBOT Car Project Firmware Version 2.0 Developer Preview
 * Developer & Contributors
 * REPUBLIC OF LEGENDS
 * No Bluetooth Connectivity
