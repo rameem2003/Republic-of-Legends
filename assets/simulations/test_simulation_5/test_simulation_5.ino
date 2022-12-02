@@ -1,9 +1,9 @@
 /**
-* Arduino Based ROBOT Car Project Firmware Version 2.0 Developer Preview
+* Arduino Based ROBOT Car Project Firmware Version 2.0 Developer Preview (20/4 LCD Display)
 * Developer & Contributors
 * REPUBLIC OF LEGENDS
-* No Bluetooth Connectivity
-* ROBOT going forward, backward and stop
+* With Bluetooth Connectivity
+* ROBOT going forward, backward, left, right and stop
 * Added 20/4 LCD display replace 16/2 LCD dispslay
 */
 

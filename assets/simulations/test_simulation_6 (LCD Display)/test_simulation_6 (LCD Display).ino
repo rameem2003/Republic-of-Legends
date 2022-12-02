@@ -2,9 +2,7 @@
 * Arduino Based ROBOT Car Project Firmware Version 2.0 Developer Preview (20/4 LCD Display)
 * Developer & Contributors
 * REPUBLIC OF LEGENDS
-* No Bluetooth Connectivity
-* ROBOT going forward, backward and stop
-* Added 20/4 LCD display replace 16/2 LCD dispslay
+* Test 20/4 LCD Display
 */
 
 #include <LiquidCrystal_I2C.h>
