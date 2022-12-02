@@ -9,14 +9,13 @@
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
-String conn;
+string conn;
 char sig;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   lcd.begin();
-
 }
 
 void loop() {
@@ -24,29 +23,24 @@ void loop() {
   if(Serial.available()){
     sig = Serial.read();
 
-    if(sig == 'S'){
-      conn = "Connected to phone";
-    }
-    else {
-      conn = "Me Not Connected    ";
-    }
-  }
+    
+    conn = "*CONNECTED TO PHONE*";
+    Display(conn);
 
-  Display(conn);
-  
-  
-  
-  
+
+  }else{
+    Display("<<ME NOT CONNECTED>>");
+  }
 
 }
 
 
-void Display(String conn){
+void Display(string conn){
   lcd.setCursor(0,0);
-  lcd.print("Republic of Legends");
+  lcd.print("REPUBLIC OF LEGENDS");
 
   lcd.setCursor(0, 1);
-  lcd.print("   Robot Car v1.0  ");
+  lcd.print("   ROBOT CAR v1.0  ");
 
   lcd.setCursor(0, 2);
   lcd.print("   <BETA PREVIEW>  ");

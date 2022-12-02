@@ -1,4 +1,4 @@
 {
     "board": "arduino:avr:uno",
-    "sketch": "Arduino Robot Car.ino"
+    "sketch": "assets\\simulations\\test_simulation_6 (LCD Display)\\test_simulation_6 (LCD Display).ino"
 }
