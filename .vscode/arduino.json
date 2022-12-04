@@ -1,4 +1,4 @@
 {
     "board": "arduino:avr:uno",
-    "sketch": "assets\\simulations\\test_simulation_6 (LCD Display)\\test_simulation_6 (LCD Display).ino"
+    "sketch": "assets\\simulations\\test_simulation_7 (Beta Firmware)\\test_simulation_7 (Beta Firmware).ino"
 }

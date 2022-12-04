@@ -9,7 +9,7 @@
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
-string conn;
+String conn;
 char sig;
 
 void setup() {
@@ -35,7 +35,7 @@ void loop() {
 }
 
 
-void Display(string conn){
+void Display(String conn){
   lcd.setCursor(0,0);
   lcd.print("REPUBLIC OF LEGENDS");
 
