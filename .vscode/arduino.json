@@ -1,4 +1,0 @@
-{
-    "board": "arduino:avr:uno",
-    "sketch": "assets\\simulations\\test_simulation_7 (Beta Firmware)\\test_simulation_7 (Beta Firmware).ino"
-}
