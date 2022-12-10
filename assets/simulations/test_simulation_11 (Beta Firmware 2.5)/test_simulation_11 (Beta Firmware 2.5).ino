@@ -1,14 +1,21 @@
 /**
-* Arduino Based ROBOT Car Project Firmware Version 2.4 Beta Preview
+* Arduino Based ROBOT Car Project Firmware Version 2.5 Beta Preview
 * Developer & Contributors
 * REPUBLIC OF LEGENDS
+*
+* #################################### *
+* #                                  # *
+* #           CHANGE LOG             # *
+* #                                  # *
+* #################################### *
+*
 * With Bluetooth Connectivity
 * ROBOT forward, backward, left, right and stop function added 
 * Added 20/4 LCD display with I2C
 * Added display function for simplify the firmware
-* Separate display function into dynamic and static display
+* Separate display function into dynamic and static
+* Voice control not available on this virsion of firmware
 * Increase stability
-* Voice control not added
 */
 
 // Declare all dependencies
@@ -91,13 +98,12 @@ void loop() {
       goRight(); // if robot get R signal then go right
       dynamicDisplay("      GO RIGHT      ");
     }
-  }else {
-    status = "<<ME NOT CONNECTED>>";
-    dynamicDisplay(status);
+
+    if(sig == 'D'){
+      status = "<<ME NOT CONNECTED>>";
+      dynamicDisplay(status);
+    }
   }
-
-  
-
 }
 
 
@@ -137,7 +143,6 @@ void goLeft(){
   digitalWrite(motor_B_in_2, HIGH);
 }
 
-
 void goRight(){
   digitalWrite(motor_A_in_1, LOW); 
   digitalWrite(motor_A_in_2, HIGH);
@@ -163,7 +168,7 @@ void robotStop(){
 */
 
 void staticDisplay(){
-  lcd.setCursor(0,0);
+  lcd.setCursor(0, 0);
   lcd.print("REPUBLIC OF LEGENDS");
 
   lcd.setCursor(0, 1);
@@ -171,6 +176,9 @@ void staticDisplay(){
 
   lcd.setCursor(0, 2);
   lcd.print("   <BETA PREVIEW>  ");
+
+  lcd.setCursor(0, 3);
+  lcd.print("<<ME NOT CONNECTED>>");
 }
 
 
