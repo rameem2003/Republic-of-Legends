@@ -16,6 +16,7 @@
 * Separate display function into dynamic and static
 * Voice control not available on this version of firmware
 * Increase stability
+* All members are working on this firmware using GITHUB
 */
 
 // Declare all dependencies
@@ -106,13 +107,13 @@ void loop() {
     }
 
     if(sig == 'K'){
-      status = "<<ME NOT CONNECTED>>";
-      dynamicDisplay(status);
+      // status = "<<ME NOT CONNECTED>>";
+      dynamicDisplay("<<ME NOT CONNECTED>>");
     }
 
     if(sig == '+'){
-      status = "<<ME NOT CONNECTED>>";
-      dynamicDisplay(status);
+      // status = "<<ME NOT CONNECTED>>";
+      dynamicDisplay("<<ME NOT CONNECTED>>");
     }
   }
 }
@@ -187,6 +188,7 @@ void staticDisplay(){
 
   lcd.setCursor(0, 2);
   lcd.print("   <BETA PREVIEW>  ");
+  // lcd.print("  <STABLE RELEASE>  ");
 
   lcd.setCursor(0, 3);
   lcd.print("<<ME NOT CONNECTED>>");
