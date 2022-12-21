@@ -32,6 +32,8 @@ int motor_A_in_2 = 5; // right negetive
 int motor_B_in_1 = 6; // left positive
 int motor_B_in_2 = 7; // left negetive
 
+int notification = 12; // Initialize buzzer for notification sound
+
 int speed = 150;
 char sig;
 String status;
