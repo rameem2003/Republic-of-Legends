@@ -32,7 +32,7 @@ int motor_A_in_2 = 5; // right negetive
 int motor_B_in_1 = 6; // left positive
 int motor_B_in_2 = 7; // left negetive
 
-int notification = 12; // Initialize buzzer for notification sound
+int notificationPin = 11; // Initialize buzzer for notification sound
 
 int speed = 150;
 char sig;
@@ -58,7 +58,9 @@ void setup() {
   pinMode(motor_A_in_2, OUTPUT);
   pinMode(motor_B_in_1, OUTPUT);
   pinMode(motor_B_in_2, OUTPUT);
+  pinMode(notificationPin, OUTPUT);
   staticDisplay();
+  notificationOn();
 }
 
 void loop() {
@@ -82,41 +84,46 @@ void loop() {
       robotStop(); // if robot get S signal then robot stop
       status = "*CONNECTED TO PHONE*";
       dynamicDisplay(status); // if robot get signal from phone then print the msg
+      notificationOff();
     }
 
     if(sig == 'F'){
       goForward(); // if robot get F signal then go forward
       dynamicDisplay("     GO FORWARD     "); // Display message
+      notificationOff();
     }
 
     if(sig == 'B'){
       goBackward(); // if robot get B signal then go backward
       dynamicDisplay("     GO BACKWARD    "); // Display message
+      notificationOff();
     }
 
     if(sig == 'L'){
       goLeft(); // if robot get L signal then go left
       dynamicDisplay("      GO LEFT       "); // Display message
+      notificationOff();
     }
 
     if(sig == 'R'){
       goRight(); // if robot get R signal then go right
       dynamicDisplay("      GO RIGHT      "); // Display message
+      notificationOff();
     }
 
     if(sig == 'D'){
-      // status = "<<ME NOT CONNECTED>>";
       dynamicDisplay("<<ME NOT CONNECTED>>");
+      notificationOff();
     }
 
     if(sig == 'K'){
-      // status = "<<ME NOT CONNECTED>>";
       dynamicDisplay("<<ME NOT CONNECTED>>");
+      notificationOn();
     }
 
     if(sig == '+'){
-      // status = "<<ME NOT CONNECTED>>";
       dynamicDisplay("<<ME NOT CONNECTED>>");
+      notificationOn();
     }
 
 
@@ -167,7 +174,24 @@ void loop() {
     if(sig == '9'){
       speed = 255;
     }
+
+    if(sig == 'I'){
+      hornOn();
+    }
+
+    if(sig == 'v'){
+      hornOff();
+    }
   }
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -250,4 +274,24 @@ void staticDisplay(){
 void dynamicDisplay(String status){
   lcd.setCursor(0, 3);
   lcd.print(status);
+}
+
+/**
+ * Create sound function for nitification
+*/
+
+void notificationOn(){
+  analogWrite(notificationPin, 255);
+}
+
+void notificationOff(){
+  analogWrite(notificationPin, LOW);
+}
+
+void hornOn(){
+  analogWrite(notificationPin, 255);
+}
+
+void hornOff(){
+  analogWrite(notificationPin, LOW);
 }
