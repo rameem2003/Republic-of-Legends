@@ -12,12 +12,13 @@
 * With Bluetooth Connectivity
 * ROBOT forward, backward, left, right and stop function added 
 * Added 20/4 LCD display with I2C
-* Added display function for simplify the firmware
+* Added display function to show the car activities
 * Separate display function into dynamic and static
 * Voice control not available on this version of firmware
+* Implement dynamic speed control feature
+* Changed the access name and password of HC-06 bluetooth module
+* All members are contributing on our robot firmware (Major contribution Fahmida Yeasmin & Mahmood Hassan Rameem)
 * Increase stability
-* Control robot speed using controller
-* All members are contributing on our robot firmware
 */
 
 // Declare all dependencies
@@ -40,9 +41,7 @@ String status;
 
 
 void setup() {
-  // Initialize all motor, blutooth and display
-
-
+  // Initialize all motor, blutooth, buzzer and display
   Serial.begin(9600); // setup bluetooth connection to arduino
   lcd.begin(); // lcd display start
 
@@ -127,9 +126,9 @@ void loop() {
     }
 
 
-    // control speed of robot
     /**
     *
+    * Control speed of robot
     * Signal range from controller 1 to 9
     * 
     */
@@ -173,14 +172,6 @@ void loop() {
 
     if(sig == '9'){
       speed = 255;
-    }
-
-    if(sig == 'I'){
-      hornOn();
-    }
-
-    if(sig == 'v'){
-      hornOff();
     }
   }
 
@@ -290,8 +281,4 @@ void notificationOff(){
 
 void hornOn(){
   analogWrite(notificationPin, 255);
-}
-
-void hornOff(){
-  analogWrite(notificationPin, LOW);
 }
