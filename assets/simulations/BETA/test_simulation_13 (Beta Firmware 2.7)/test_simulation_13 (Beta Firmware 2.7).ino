@@ -112,7 +112,7 @@ void loop() {
 
     if(sig == 'D'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
-      notificationOff();
+      notificationOn();
     }
 
     if(sig == 'K'){
