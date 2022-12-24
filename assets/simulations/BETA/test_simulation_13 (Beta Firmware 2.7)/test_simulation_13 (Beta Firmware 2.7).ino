@@ -125,6 +125,10 @@ void loop() {
       notificationOn();
     }
 
+     if(sig == 'I'){
+      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
+      notificationOn();
+    }
 
     /**
     *
