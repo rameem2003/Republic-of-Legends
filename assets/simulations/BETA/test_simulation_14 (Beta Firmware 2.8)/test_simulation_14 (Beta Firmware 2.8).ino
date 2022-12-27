@@ -1,5 +1,5 @@
 /**
-* Arduino Based ROBOT Car Project Firmware Version 2.7 Beta Preview
+* Arduino Based ROBOT Car Project Firmware Version 2.8 Beta Preview
 * Developer & Contributors
 * REPUBLIC OF LEGENDS
 *
@@ -34,6 +34,18 @@ int motor_B_in_1 = 6; // left positive
 int motor_B_in_2 = 7; // left negetive
 
 int notificationPin = 11; // Initialize buzzer for notification sound
+
+/*
+*
+* Declaring varialbles for sound notification animation
+* Use millis() function resplace delay() function
+*
+*/
+bool state = 1; // for high/low state
+unsigned long currTime = 0; // current time
+unsigned long prevTime = 0; // previous time
+
+
 
 int speed = 150;
 char sig;
@@ -125,7 +137,7 @@ void loop() {
       notificationOn();
     }
 
-     if(sig == 'I'){
+    if(sig == 'I'){
       dynamicDisplay("<<ASSALA-MUALAIKUM>>");
       notificationOn();
     }
@@ -272,11 +284,16 @@ void dynamicDisplay(String status){
 }
 
 /**
- * Create sound function for nitification
+ * Create sound function for notification
 */
 
 void notificationOn(){
-  analogWrite(notificationPin, 255);
+  currTime = millis();
+  if(currTime - prevTime => 500){
+    digitalWrite(notificationPin, state);
+    state = !state;
+    prevTime = currTime;
+  }
 }
 
 void notificationOff(){
