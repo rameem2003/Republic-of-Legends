@@ -193,9 +193,6 @@ void loop() {
     if(sig == '9'){
       speed = 255;
     }
-  }else{
-    dynamicDisplay("<<ME NOT CONNECTED>>");
-    notificationOn();
   }
 }
 
@@ -302,7 +299,7 @@ void notificationOn(){
 
   else{
     if(currTime - prevTime > offTime){
-      state = 0;
+      state = 1;
       prevTime = currTime;
     }
   }
