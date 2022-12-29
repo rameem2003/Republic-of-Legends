@@ -17,6 +17,7 @@
 * Voice control not available on this version of firmware
 * Implement dynamic speed control feature
 * Changed the access name and password of HC-06 bluetooth module
+* Implement sound & led notification
 * All members are contributing on our robot firmware (Major contribution Fahmida Yeasmin & Mahmood Hassan Rameem)
 * Increase stability
 */
@@ -38,7 +39,7 @@ int notificationPin = 11; // Initialize buzzer for notification sound
 /*
 *
 * Declaring varialbles for sound notification animation
-* Use millis() function resplace delay() function
+* Use millis() function replace delay() function
 *
 */
 int state = 1; // for high/low state
@@ -50,9 +51,9 @@ unsigned long offTime = 2000; // sound & light off duration
 
 
 
-int speed = 150;
-char sig;
-String status;
+int speed = 150; // Set car default speed
+char sig; // variable for get the signal
+String status; // variable for store the messages
 
 
 void setup() {
