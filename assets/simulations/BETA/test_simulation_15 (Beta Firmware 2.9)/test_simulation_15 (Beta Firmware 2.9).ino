@@ -311,3 +311,10 @@ void notificationOn(){
 void notificationOff(){
   digitalWrite(notificationPin, LOW);
 }
+
+
+/**
+ * Led notification function 
+ * Function maker Fahmida Yeasmin
+ * Coming soon
+*/
