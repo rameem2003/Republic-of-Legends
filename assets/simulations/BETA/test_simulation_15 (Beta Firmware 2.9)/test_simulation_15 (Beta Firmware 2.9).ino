@@ -23,6 +23,8 @@
 */
 
 // Declare all dependencies
+int led =12; //led line comes from pin 12 
+
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 int ENB_A = 10; // power signal for right side motors
@@ -56,6 +58,7 @@ char sig; // variable for get the signal
 String status; // variable for store the messages
 
 
+
 void setup() {
   // Initialize all motor, blutooth, buzzer and display
   Serial.begin(9600); // setup bluetooth connection to arduino
@@ -74,6 +77,7 @@ void setup() {
   pinMode(motor_B_in_1, OUTPUT);
   pinMode(motor_B_in_2, OUTPUT);
   pinMode(notificationPin, OUTPUT);
+  pinMode(led, OUTPUT);
   staticDisplay();
   notificationOn();
 }
@@ -144,7 +148,9 @@ void loop() {
     if(sig == 'I'){
       dynamicDisplay("<<ASSALA-MUALAIKUM>>");
       notificationOn();
+      led_on();
     }
+  
 
     /**
     *
@@ -312,9 +318,15 @@ void notificationOff(){
   digitalWrite(notificationPin, LOW);
 }
 
-
 /**
  * Led notification function 
  * Function maker Fahmida Yeasmin
  * Coming soon
-*/
+ * Code added */
+
+void led_on(){
+digitalWrite(led, HIGH);
+}
+void led_off(){
+digitalWrite(led, LOW);
+}
