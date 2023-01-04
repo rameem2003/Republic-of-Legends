@@ -59,7 +59,7 @@ void setup() {
   pinMode(motor_B_in_2, OUTPUT);
   pinMode(notificationPin, OUTPUT);
   staticDisplay();
-  notificationOn();
+  // notificationOn();
 }
 
 void loop() {
@@ -112,20 +112,25 @@ void loop() {
 
     if(sig == 'D'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
-      notificationOn();
+      // notificationOn();
     }
 
     if(sig == 'K'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
-      notificationOn();
+      // notificationOn();
     }
 
     if(sig == '+'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
+      // notificationOn();
+    }
+
+    if(sig == 'I'){
+      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
       notificationOn();
     }
 
-     if(sig == 'I'){
+    if(sig == 'H'){
       dynamicDisplay("<<ASSALA-MUALAIKUM>>");
       notificationOn();
     }
@@ -258,8 +263,9 @@ void staticDisplay(){
   lcd.print("   ROBOT CAR v1.0  ");
 
   lcd.setCursor(0, 2);
-  lcd.print("   <BETA PREVIEW>  ");
+  // lcd.print("   <BETA PREVIEW>  ");
   // lcd.print("  <STABLE RELEASE>  ");
+  lcd.print(" FIRMWARE v2.7 BETA");
 
   lcd.setCursor(0, 3);
   lcd.print("<<ME NOT CONNECTED>>");
