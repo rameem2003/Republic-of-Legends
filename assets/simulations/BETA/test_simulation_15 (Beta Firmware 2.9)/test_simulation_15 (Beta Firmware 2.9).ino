@@ -321,8 +321,8 @@ void notificationOff(){
 /**
  * Led notification function 
  * Function maker Fahmida Yeasmin
- * Coming soon
- * Code added */
+ * Code added 
+*/
 
 void led_on(){
 digitalWrite(led, HIGH);
