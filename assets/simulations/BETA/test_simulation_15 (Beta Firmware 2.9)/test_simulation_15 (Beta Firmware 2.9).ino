@@ -23,7 +23,7 @@
 */
 
 // Declare all dependencies
-int led =12; //led line comes from pin 12 
+int led = 12; //led line comes from pin 12 
 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 20, 4);
@@ -40,11 +40,11 @@ int notificationPin = 11; // Initialize buzzer for notification sound
 
 /*
 *
-* Declaring varialbles for sound notification animation
+* Declaring varialbles for sound & led notification animation
 * Use millis() function replace delay() function
 *
 */
-int state = 1; // for high/low state
+bool state = 1; // for high/low state
 unsigned long currTime = 0; // current time
 unsigned long prevTime = 0; // previous time
 
@@ -80,6 +80,7 @@ void setup() {
   pinMode(led, OUTPUT);
   staticDisplay();
   notificationOn();
+  //beeper();
 }
 
 void loop() {
@@ -135,6 +136,14 @@ void loop() {
       notificationOn();
     }
 
+    if(sig == 'W'){
+      led_on();
+    }
+
+    if(sig == 'w'){
+      led_off();
+    }
+
     if(sig == 'K'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
       notificationOn();
@@ -145,11 +154,7 @@ void loop() {
       notificationOn();
     }
 
-    if(sig == 'I'){
-      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
-      notificationOn();
-      led_on();
-    }
+    
   
 
     /**
@@ -285,10 +290,18 @@ void dynamicDisplay(String status){
 }
 
 /**
- * Create sound function for notification
+ * Create sound & led function for notification
 */
 
 void notificationOn(){
+  digitalWrite(notificationPin, HIGH);
+}
+
+void notificationOff(){
+  digitalWrite(notificationPin, LOW);
+}
+
+void beeper(){
   currTime = millis();
   // if(currTime - prevTime => 500){
   //   digitalWrite(notificationPin, state);
@@ -297,14 +310,14 @@ void notificationOn(){
   // }
 
   if(state == 1){
-    if(currTime - prevTime > onTime){
+    if(currTime - prevTime >= onTime){
       state = 0;
       prevTime = currTime;
     }
   }
 
   else{
-    if(currTime - prevTime > offTime){
+    if(currTime - prevTime >= offTime){
       state = 1;
       prevTime = currTime;
     }
@@ -312,10 +325,7 @@ void notificationOn(){
 
 
   digitalWrite(notificationPin, state);
-}
-
-void notificationOff(){
-  digitalWrite(notificationPin, LOW);
+  // digitalWrite(led, state);
 }
 
 /**
