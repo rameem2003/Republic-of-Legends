@@ -1,5 +1,5 @@
 /**
-* Arduino Based ROBOT Car Project Firmware Version 2.7 Beta Preview
+* Arduino Based ROBOT Car Project Firmware Version 2.7 Public Beta Preview
 * Developer & Contributors
 * REPUBLIC OF LEGENDS
 *
@@ -59,7 +59,7 @@ void setup() {
   pinMode(motor_B_in_2, OUTPUT);
   pinMode(notificationPin, OUTPUT);
   staticDisplay();
-  // notificationOn();
+  notificationOn();
 }
 
 void loop() {
@@ -117,7 +117,7 @@ void loop() {
 
     if(sig == 'K'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
-      // notificationOn();
+      notificationOn();
     }
 
     if(sig == '+'){

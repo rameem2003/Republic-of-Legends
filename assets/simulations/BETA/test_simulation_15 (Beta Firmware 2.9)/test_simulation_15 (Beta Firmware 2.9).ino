@@ -23,7 +23,6 @@
 */
 
 // Declare all dependencies
-int led = 12; //led line comes from pin 12 
 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 20, 4);
@@ -37,6 +36,8 @@ int motor_B_in_1 = 6; // left positive
 int motor_B_in_2 = 7; // left negetive
 
 int notificationPin = 11; // Initialize buzzer for notification sound
+
+int led = 12; //led line comes from pin 12 
 
 /*
 *
@@ -61,7 +62,7 @@ String status; // variable for store the messages
 
 void setup() {
   // Initialize all motor, blutooth, buzzer and display
-  Serial.begin(9600); // setup bluetooth connection to arduino
+  Serial.begin(9600); // setup bluetooth connection to arduino (Yellow, Orange, Coffee, Red)
   lcd.begin(); // lcd display start
 
   /**
@@ -80,7 +81,6 @@ void setup() {
   pinMode(led, OUTPUT);
   staticDisplay();
   notificationOn();
-  //beeper();
 }
 
 void loop() {
@@ -100,11 +100,20 @@ void loop() {
 
     Serial.println(sig);
 
+    if(sig == 'W'){
+      digitalWrite(led, HIGH);
+    }
+
+    if(sig == 'w'){
+      digitalWrite(led, LOW);
+    }
+
     if(sig == 'S'){
       robotStop(); // if robot get S signal then robot stop
       status = "*CONNECTED TO PHONE*";
       dynamicDisplay(status); // if robot get signal from phone then print the msg
       notificationOff();
+      // led_off();
     }
 
     if(sig == 'F'){
@@ -133,30 +142,34 @@ void loop() {
 
     if(sig == 'D'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
-      notificationOn();
-    }
-
-    if(sig == 'W'){
-      led_on();
-    }
-
-    if(sig == 'w'){
-      led_off();
+      // notificationOn();
     }
 
     if(sig == 'K'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
       notificationOn();
+      led_off();
+      // beeper();
     }
 
     if(sig == '+'){
       dynamicDisplay("<<ME NOT CONNECTED>>");
-      notificationOn();
+      // notificationOn();
     }
 
-    
-  
+    if(sig == 'I'){
+      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
+      // notificationOn();
+      salam();
+    }
 
+    if(sig == 'H'){
+      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
+      // notificationOn();
+      salam();
+    }
+
+  
     /**
     *
     * Control speed of robot
@@ -204,6 +217,14 @@ void loop() {
     if(sig == '9'){
       speed = 255;
     }
+  }
+
+  if(sig == 'W'){
+      digitalWrite(led, HIGH);
+    }
+
+  if(sig == 'w'){
+    digitalWrite(led, LOW);
   }
 }
 
@@ -277,7 +298,8 @@ void staticDisplay(){
 
   lcd.setCursor(0, 2);
   lcd.print("   <BETA PREVIEW>  ");
-  // lcd.print("  <STABLE RELEASE>  ");
+  // lcd.print("FIRMWARE v3.0 STABLE");
+  // lcd.print(" FIRMWARE  v3.0 LTS ")
 
   lcd.setCursor(0, 3);
   lcd.print("<<ME NOT CONNECTED>>");
@@ -325,7 +347,6 @@ void beeper(){
 
 
   digitalWrite(notificationPin, state);
-  // digitalWrite(led, state);
 }
 
 /**
@@ -335,8 +356,19 @@ void beeper(){
 */
 
 void led_on(){
-digitalWrite(led, HIGH);
+  digitalWrite(led, HIGH);
 }
 void led_off(){
-digitalWrite(led, LOW);
+  digitalWrite(led, LOW);
+}
+
+
+/**
+ * Greetings function for robot
+ * Function name salam()
+*/
+
+void salam(){
+  digitalWrite(notificationPin, HIGH);
+  digitalWrite(led, HIGH);
 }
