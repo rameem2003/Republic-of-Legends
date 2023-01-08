@@ -54,6 +54,13 @@ int notificationPin = 11; // Initialize buzzer for notification sound
 
 int led = 12; //led line comes from pin 12 
 
+// backside led's
+int back_led_1_pos = A3;
+int back_led_1_neg = A2;
+
+int back_led_2_pos = A1;
+int back_led_2_neg = A0;
+
 /*
 *
 * Declaring varialbles for sound & led notification animation
@@ -94,6 +101,21 @@ void setup() {
   pinMode(motor_B_in_2, OUTPUT);
   pinMode(notificationPin, OUTPUT);
   pinMode(led, OUTPUT);
+
+  /**
+   * activate all led's
+   * power up all led's
+  */
+
+
+  pinMode(back_led_1_pos, OUTPUT);
+  pinMode(back_led_1_neg, OUTPUT);
+  pinMode(back_led_2_pos, OUTPUT);
+  pinMode(back_led_2_neg, OUTPUT);
+
+  analogWrite(back_led_1_neg, 0);
+  analogWrite(back_led_2_neg, 0);
+
 
   staticDisplay(); // Display initial message
   notificationOn(); // Play initial disconnect sound
@@ -252,6 +274,9 @@ void goForward(){
 
   digitalWrite(motor_B_in_1, HIGH);
   digitalWrite(motor_B_in_2, LOW);
+
+  analogWrite(back_led_1_pos, 0);
+  analogWrite(back_led_2_pos, 0);
 }
 
 void goBackward(){
@@ -261,6 +286,9 @@ void goBackward(){
 
   digitalWrite(motor_B_in_1, LOW);
   digitalWrite(motor_B_in_2, HIGH);
+
+  analogWrite(back_led_1_pos, 255);
+  analogWrite(back_led_2_pos, 255);
 }
 
 void goLeft(){
@@ -270,6 +298,9 @@ void goLeft(){
 
   digitalWrite(motor_B_in_1, LOW);
   digitalWrite(motor_B_in_2, HIGH);
+
+  analogWrite(back_led_1_pos, 0);
+  analogWrite(back_led_2_pos, 0);
 }
 
 void goRight(){
@@ -279,6 +310,9 @@ void goRight(){
 
   digitalWrite(motor_B_in_1, HIGH);
   digitalWrite(motor_B_in_2, LOW);
+
+  analogWrite(back_led_1_pos, 0);
+  analogWrite(back_led_2_pos, 0);
 }
 
 void robotStop(){
@@ -288,6 +322,9 @@ void robotStop(){
 
   digitalWrite(motor_B_in_1, LOW);
   digitalWrite(motor_B_in_2, LOW);
+
+  analogWrite(back_led_1_pos, 0);
+  analogWrite(back_led_2_pos, 0);
 }
 
 
