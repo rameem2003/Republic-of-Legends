@@ -94,8 +94,9 @@ void setup() {
   pinMode(motor_B_in_2, OUTPUT);
   pinMode(notificationPin, OUTPUT);
   pinMode(led, OUTPUT);
-  staticDisplay();
-  notificationOn();
+
+  staticDisplay(); // Display initial message
+  notificationOn(); // Play initial disconnect sound
 }
 
 void loop() {
@@ -116,43 +117,42 @@ void loop() {
     Serial.println(sig);
 
     if(sig == 'W'){
-      led_on();
+      led_on(); // if robot get signal from phone then head light will be turn on
     }
 
     if(sig == 'w'){
-      led_off();
+      led_off(); // // if robot get signal from phone then head light will be turn off
     }
 
     if(sig == 'S'){
       robotStop(); // if robot get S signal then robot stop
       status = "*CONNECTED TO PHONE*";
       dynamicDisplay(status); // if robot get signal from phone then print the msg
-      notificationOff();
-      // led_off();
+      notificationOff(); // notification sound off
     }
 
     if(sig == 'F'){
       goForward(); // if robot get F signal then go forward
       dynamicDisplay("     GO FORWARD     "); // Display message
-      notificationOff();
+      notificationOff(); // notification sound off
     }
 
     if(sig == 'B'){
       goBackward(); // if robot get B signal then go backward
       dynamicDisplay("     GO BACKWARD    "); // Display message
-      notificationOff();
+      notificationOff(); // notification sound off
     }
 
     if(sig == 'L'){
       goLeft(); // if robot get L signal then go left
       dynamicDisplay("      GO LEFT       "); // Display message
-      notificationOff();
+      notificationOff(); // notification sound off
     }
 
     if(sig == 'R'){
       goRight(); // if robot get R signal then go right
       dynamicDisplay("      GO RIGHT      "); // Display message
-      notificationOff();
+      notificationOff(); // notification sound off
     }
 
     if(sig == 'D'){
@@ -173,15 +173,13 @@ void loop() {
     }
 
     if(sig == 'I'){
-      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
-      // notificationOn();
-      salam();
+      dynamicDisplay("<<ASSALA-MUALAIKUM>>"); // Display message
+      salam(); // greetings activity
     }
 
     if(sig == 'H'){
-      dynamicDisplay("<<ASSALA-MUALAIKUM>>");
-      // notificationOn();
-      salam();
+      dynamicDisplay("<<ASSALA-MUALAIKUM>>"); // Display message
+      salam(); // greetings activity
     }
 
   
