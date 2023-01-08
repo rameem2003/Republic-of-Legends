@@ -22,6 +22,21 @@
 * Increase stability
 */
 
+/**
+
+                   oooo    .oooooo.    .oooooo..o 
+                   `888   d8P'  `Y8b  d8P'    `Y8 
+oooo d8b  .ooooo.   888  888      888 Y88bo.      
+`888""8P d88' `88b  888  888      888  `"Y8888o.  
+ 888     888   888  888  888      888      `"Y88b 
+ 888     888   888  888  `88b    d88' oo     .d8P 
+d888b    `Y8bod8P' o888o  `Y8bood8P'  8""88888P'  
+                                                  
+                                                  
+                                                  
+
+*/
+
 // Declare all dependencies
 
 #include <LiquidCrystal_I2C.h>
@@ -101,11 +116,11 @@ void loop() {
     Serial.println(sig);
 
     if(sig == 'W'){
-      digitalWrite(led, HIGH);
+      led_on();
     }
 
     if(sig == 'w'){
-      digitalWrite(led, LOW);
+      led_off();
     }
 
     if(sig == 'S'){
@@ -219,13 +234,7 @@ void loop() {
     }
   }
 
-  if(sig == 'W'){
-      digitalWrite(led, HIGH);
-    }
-
-  if(sig == 'w'){
-    digitalWrite(led, LOW);
-  }
+  
 }
 
 
