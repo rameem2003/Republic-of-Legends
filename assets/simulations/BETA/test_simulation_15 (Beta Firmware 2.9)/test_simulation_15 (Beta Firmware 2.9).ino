@@ -52,7 +52,7 @@ int motor_B_in_2 = 7; // left negetive
 
 int notificationPin = 11; // Initialize buzzer for notification sound
 
-int led = 12; //led line comes from pin 12 
+// int led = 12; //led line comes from pin 12 
 
 // backside led's
 int back_led_1_pos = A3;
@@ -60,6 +60,12 @@ int back_led_1_neg = A2;
 
 int back_led_2_pos = A1;
 int back_led_2_neg = A0;
+
+// frotside led's
+int front_led_1_pos = 2;
+int front_led_1_neg = 3;
+int front_led_2_pos = 12;
+int front_led_2_neg = 13;
 
 /*
 *
@@ -100,7 +106,7 @@ void setup() {
   pinMode(motor_B_in_1, OUTPUT);
   pinMode(motor_B_in_2, OUTPUT);
   pinMode(notificationPin, OUTPUT);
-  pinMode(led, OUTPUT);
+  // pinMode(led, OUTPUT);
 
   /**
    * activate all led's
@@ -113,8 +119,15 @@ void setup() {
   pinMode(back_led_2_pos, OUTPUT);
   pinMode(back_led_2_neg, OUTPUT);
 
+  pinMode(front_led_1_pos, OUTPUT);
+  pinMode(front_led_1_neg, OUTPUT);
+  pinMode(front_led_2_pos, OUTPUT);
+  pinMode(front_led_2_neg, OUTPUT);
+
   analogWrite(back_led_1_neg, 0);
   analogWrite(back_led_2_neg, 0);
+  digitalWrite(front_led_1_neg, LOW);
+  digitalWrite(front_led_2_neg, LOW);
 
 
   staticDisplay(); // Display initial message
@@ -400,10 +413,14 @@ void beeper(){
 */
 
 void led_on(){
-  digitalWrite(led, HIGH);
+  // digitalWrite(led, HIGH);
+  digitalWrite(front_led_1_pos, HIGH);
+  digitalWrite(front_led_2_pos, HIGH);
 }
 void led_off(){
-  digitalWrite(led, LOW);
+  // digitalWrite(led, LOW);
+  digitalWrite(front_led_1_pos, LOW);
+  digitalWrite(front_led_2_pos, LOW);
 }
 
 
@@ -414,5 +431,7 @@ void led_off(){
 
 void salam(){
   digitalWrite(notificationPin, HIGH);
-  digitalWrite(led, HIGH);
+  // digitalWrite(led, HIGH);
+  digitalWrite(front_led_1_pos, HIGH);
+  digitalWrite(front_led_2_pos, HIGH);
 }
