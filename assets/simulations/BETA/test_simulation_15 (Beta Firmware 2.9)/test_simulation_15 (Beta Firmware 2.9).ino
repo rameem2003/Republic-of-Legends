@@ -151,6 +151,14 @@ void loop() {
 
     Serial.println(sig);
 
+    if(sig == 'U'){
+      backLight_on();
+    }
+
+    if(sig == 'u'){
+      backLight_off();
+    }
+
     if(sig == 'W'){
       led_on(); // if robot get signal from phone then head light will be turn on
     }
@@ -170,6 +178,7 @@ void loop() {
       goForward(); // if robot get F signal then go forward
       dynamicDisplay("     GO FORWARD     "); // Display message
       notificationOff(); // notification sound off
+      backLight_off();
     }
 
     if(sig == 'B'){
@@ -199,6 +208,7 @@ void loop() {
       dynamicDisplay("<<ME NOT CONNECTED>>");
       notificationOn();
       led_off();
+      backLight_off();
       // beeper();
     }
 
@@ -311,9 +321,6 @@ void goLeft(){
 
   digitalWrite(motor_B_in_1, LOW);
   digitalWrite(motor_B_in_2, HIGH);
-
-  analogWrite(back_led_1_pos, 0);
-  analogWrite(back_led_2_pos, 0);
 }
 
 void goRight(){
@@ -323,9 +330,6 @@ void goRight(){
 
   digitalWrite(motor_B_in_1, HIGH);
   digitalWrite(motor_B_in_2, LOW);
-
-  analogWrite(back_led_1_pos, 0);
-  analogWrite(back_led_2_pos, 0);
 }
 
 void robotStop(){
@@ -335,9 +339,6 @@ void robotStop(){
 
   digitalWrite(motor_B_in_1, LOW);
   digitalWrite(motor_B_in_2, LOW);
-
-  analogWrite(back_led_1_pos, 0);
-  analogWrite(back_led_2_pos, 0);
 }
 
 
@@ -373,7 +374,7 @@ void dynamicDisplay(String status){
 */
 
 void notificationOn(){
-  digitalWrite(notificationPin, HIGH);
+  analogWrite(notificationPin, 2);
 }
 
 void notificationOff(){
@@ -422,6 +423,24 @@ void led_off(){
   digitalWrite(front_led_1_pos, LOW);
   digitalWrite(front_led_2_pos, LOW);
 }
+
+
+/**
+ * Back light function
+ * Function maker Mahmood Hassan Rameem
+*/
+
+void backLight_on(){
+  analogWrite(back_led_1_pos, 255);
+  analogWrite(back_led_2_pos, 255);
+}
+
+void backLight_off(){
+  analogWrite(back_led_1_pos, 0);
+  analogWrite(back_led_2_pos, 0);
+}
+
+
 
 
 /**
