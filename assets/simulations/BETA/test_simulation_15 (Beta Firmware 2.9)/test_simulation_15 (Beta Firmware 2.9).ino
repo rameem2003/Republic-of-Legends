@@ -355,9 +355,10 @@ void staticDisplay(){
   lcd.print("   ROBOT CAR v1.0  ");
 
   lcd.setCursor(0, 2);
-  lcd.print("   <BETA PREVIEW>  ");
+  //lcd.print("   <BETA PREVIEW>  ");
   // lcd.print("FIRMWARE v3.0 STABLE");
-  // lcd.print(" FIRMWARE  v3.0 LTS ")
+  // lcd.print(" FIRMWARE  v3.0 LTS ");
+  lcd.print("   rolOS v3.0 LTS   ");
 
   lcd.setCursor(0, 3);
   lcd.print("<<ME NOT CONNECTED>>");

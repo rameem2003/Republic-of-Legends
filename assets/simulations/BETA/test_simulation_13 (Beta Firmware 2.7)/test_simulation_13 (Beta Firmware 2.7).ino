@@ -297,7 +297,7 @@ void dynamicDisplay(String status){
 */
 
 void notificationOn(){
-  analogWrite(notificationPin, 255);
+  analogWrite(notificationPin, 2);
 }
 
 void notificationOff(){
