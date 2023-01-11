@@ -54,6 +54,8 @@ int notificationPin = 11; // Initialize buzzer for notification sound
 
 // int led = 12; //led line comes from pin 12 
 
+int camera = 8; // camera positive
+
 // backside led's
 int back_led_1_pos = A3;
 int back_led_1_neg = A2;
@@ -128,6 +130,9 @@ void setup() {
   analogWrite(back_led_2_neg, 0);
   digitalWrite(front_led_1_neg, LOW);
   digitalWrite(front_led_2_neg, LOW);
+
+  pinMode(camera, OUTPUT);
+  digitalWrite(camera, HIGH);
 
 
   staticDisplay(); // Display initial message
