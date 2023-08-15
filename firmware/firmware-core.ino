@@ -123,33 +123,27 @@ void loop() {
 
     if(sig == 'S'){
       robotStop(); // if robot get S signal then robot stop
-      status = "*CONNECTED TO PHONE*";
-      dynamicDisplay(status); // if robot get signal from phone then print the msg
       notificationOff(); // notification sound off
     }
 
     if(sig == 'F'){
       goForward(); // if robot get F signal then go forward
-      dynamicDisplay("     GO FORWARD     "); // Display message
       notificationOff(); // notification sound off
       backLight_off();
     }
 
     if(sig == 'B'){
       goBackward(); // if robot get B signal then go backward
-      dynamicDisplay("     GO BACKWARD    "); // Display message
       notificationOff(); // notification sound off
     }
 
     if(sig == 'L'){
       goLeft(); // if robot get L signal then go left
-      dynamicDisplay("      GO LEFT       "); // Display message
       notificationOff(); // notification sound off
     }
 
     if(sig == 'R'){
       goRight(); // if robot get R signal then go right
-      dynamicDisplay("      GO RIGHT      "); // Display message
       notificationOff(); // notification sound off
     }
 
