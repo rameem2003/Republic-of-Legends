@@ -22,11 +22,9 @@ d888b    `Y8bod8P' o888o  `Y8bood8P'  8""88888P'
 
 ```
 
-[<img src="https://img.shields.io/badge/Overall stage-Beta Preview-red.svg?logo=LOGO">](LINK)
+[<img src="https://img.shields.io/badge/Firmware version-3.0 LTS-red.svg?logo=LOGO">]()
 
-[<img src="https://img.shields.io/badge/Firmware version-2.9 Beta Preview-red.svg?logo=LOGO">]()
 
-## [<img src="https://img.shields.io/badge/Upload Firmware version-2.7 Beta Preview-red.svg?logo=LOGO">]()
 
 <br>
 <br>
