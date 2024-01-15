@@ -1,4 +1,4 @@
-﻿# Arduino Control Surveillance Robot Project by
+﻿# Android Control Surveillance Robot Project by
 
 ## Republic of Legends
 
